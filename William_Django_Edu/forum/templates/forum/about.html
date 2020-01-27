@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>乐学偶得论坛-关于页面</title>
+    {% if title %}
+        <title>乐学偶得论坛 - 【{{ title }}】</title>
+    {% else %}
+        <title>乐学偶得论坛</title>
+    {% endif %}
 </head>
 <body>
 乐学偶得论坛关于页面的主体部分
