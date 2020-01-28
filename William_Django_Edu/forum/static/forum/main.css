@@ -1,0 +1,21 @@
+.article-metadata{
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #cbd5db
+}
+
+.article-title{
+    color: #333333;
+}
+
+.article-content{
+    white-space: pre-line;
+}
+
+.content-section{
+    background: #ffffff;
+    padding: 15px 25px;
+    border: 1px solid #cbd5db;
+    border-radius: 1px;
+    margin-bottom: 30px;
+}

@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    {% if title %}
-        <title>乐学偶得论坛 - 【{{ title }}】</title>
-    {% else %}
-        <title>乐学偶得论坛</title>
-    {% endif %}
+{% extends "forum/base.html" %}
+{% block content %}
+    {% for post in posts %}
+{#        <h1>【{{ post.title }}】</h1>#}
+{#        <p>文章信息：该文章由【{{ post.author }}】 发布，发布时间为【{{ post.date_posted }}】</p>#}
+{#        <p>文章内容：【{{ post.content }}】</p>#}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ post.author }}</a>
+                    <small class="text-muted">{{ post.date_posted }}</small>
+                </div>
+                <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+                <p class="article-content">{{ post.content }}</p>
+            </div>
+        </article>
 
-</head>
-<body>
-{% for post in posts %}
-    <h1>【{{ post.title }}】</h1>
-    <p>文章信息：该文章由【{{ post.author }}】 发布，发布时间为【{{ post.date_posted }}】</p>
-    <p>文章内容：【{{ post.content }}】</p>
-{% endfor %}
-</body>
-</html>
+    {% endfor %}
+{% endblock content %}
+
