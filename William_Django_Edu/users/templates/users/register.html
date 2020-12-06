@@ -1,0 +1,24 @@
+{% extends "forum/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-5">加入乐学偶得~</legend>
+                {#我们在这里可以简单的通过as_p快速进行段落排版#}
+                {#               {{ form.as_p }}#}
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">点我提交</button>
+            </div>
+        </form>
+        <div class="border-top pt-5">
+            <small class="text-muted">
+                已经加入了乐学偶得？<a class="ml-3" href="{% url 'login' %}">点我登陆</a>
+            </small>
+        </div>
+
+    </div>
+{% endblock content %}

@@ -28,6 +28,7 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/William_Django_Edu/forum/templates" />
+        <option value="$MODULE_DIR$/William_Django_Edu/users/templates" />
       </list>
     </option>
   </component>

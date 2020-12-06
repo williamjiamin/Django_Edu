@@ -1,0 +1,10 @@
+{% extends "forum/base.html" %}
+{% block content %}
+    <h3>您已经被登出，请重新登陆</h3>
+    <div class="border-top pt-5">
+        <small class="text-muted">
+           Oops，您断线咯，需要重新登陆-------点这里—--------><a href="{% url 'login' %}">点我登陆</a>
+        </small>
+    </div>
+
+{% endblock content %}
