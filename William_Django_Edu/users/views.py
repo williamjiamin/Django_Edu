@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 # 这里添加你继承的Form
 from .forms import UserRegisterForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 
 
 def register(request):
@@ -45,3 +47,7 @@ def register(request):
         form.fields['password2'].help_text = '再次输入密码'
 
     return render(request, 'users/register.html', {'form': form})
+
+@login_required
+def profile(request):
+    return render(request,'users/profile.html')

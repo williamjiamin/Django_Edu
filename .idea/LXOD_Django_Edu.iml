@@ -17,7 +17,7 @@
       <excludeFolder url="file://$MODULE_DIR$/venv" />
       <excludeFolder url="file://$MODULE_DIR$/venv_django" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.8 (LXOD_Django_Edu)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.8 (venv_django)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="popper" level="application" />
