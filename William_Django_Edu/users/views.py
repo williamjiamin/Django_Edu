@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
 # from django.contrib.auth.forms import UserCreationForm
 # 这里添加你继承的Form
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
 
 
 def register(request):
@@ -48,6 +47,53 @@ def register(request):
 
     return render(request, 'users/register.html', {'form': form})
 
+
 @login_required
 def profile(request):
-    return render(request,'users/profile.html')
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        u_form.fields['username'].label = '用户名'
+        u_form.fields['username'].help_text = '在此输入用户名'
+
+        u_form.fields['email'].label = '邮箱'
+        u_form.fields['email'].help_text = '在此输入邮箱'
+
+        p_form = ProfileUpdateForm(request.POST, request.FILES,
+                                   instance=request.user.profile)
+
+        p_form.fields['image'].label = '头像'
+        p_form.fields['image'].help_text = '在此上传头像'
+
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'您的账号信息已经被成功更新！')
+
+            # Post/Redirect/Get
+
+
+            # 假设用户提交了一个表单（submit--->POST---->server----->2XX success---->refresh---->POST）
+            # PRG(submit---->POST---->server--->3XX Redirect---->Get---->2XX success---->refresh)
+
+            return redirect('profile')
+
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        u_form.fields['username'].label = '用户名'
+        u_form.fields['username'].help_text = '在此输入用户名'
+
+        u_form.fields['email'].label = '邮箱'
+        u_form.fields['email'].help_text = '在此输入邮箱'
+
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+        p_form.fields['image'].label = '头像'
+        p_form.fields['image'].help_text = '在此上传头像'
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
+    return render(request, 'users/profile.html', context)

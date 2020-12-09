@@ -9,13 +9,13 @@ class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'email', 'password1', 'password2', ]
         # 这里可以自定义label以及help_text(说明文字)
         # labels = {
-        #     'username': '用户名称'
+        #     'username': '用户名称',
         # }
         # help_texts = {
-        #     'username': '这里写入用户名称'
+        #     'username': '这里写入用户名称',
         # }
 
 
@@ -24,10 +24,28 @@ class UserUpdateForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['username', 'email', ]
+
+        # labels = {
+        #     'username': '用户名称',
+        #     'email': '邮箱',
+        #
+        # }
+        # help_texts = {
+        #     'username': '这里写入用户名称',
+        #     'email': '这里输入邮箱账号',
+        # }
 
 
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['image']
+        fields = ['image', ]
+
+        # labels = {
+        #     'image': '用户头像',
+        #
+        # }
+        # help_texts = {
+        #     'image': '这里上传用户头像',
+        # }

@@ -1,14 +1,15 @@
 {% extends "forum/base.html" %}
 {% block content %}
     {% for post in posts %}
-{#        <h1>【{{ post.title }}】</h1>#}
-{#        <p>文章信息：该文章由【{{ post.author }}】 发布，发布时间为【{{ post.date_posted }}】</p>#}
-{#        <p>文章内容：【{{ post.content }}】</p>#}
+        {#        <h1>【{{ post.title }}】</h1>#}
+        {#        <p>文章信息：该文章由【{{ post.author }}】 发布，发布时间为【{{ post.date_posted }}】</p>#}
+        {#        <p>文章内容：【{{ post.content }}】</p>#}
         <article class="media content-section">
+            <img src="{{ post.author.profile.image.url }}" alt="img" class="rounded-circle article-img">
             <div class="media-body">
                 <div class="article-metadata">
                     <a class="mr-2" href="#">{{ post.author }}</a>
-                    <small class="text-muted">{{ post.date_posted|date:"Y 年 n 月 d 日"}}</small>
+                    <small class="text-muted">{{ post.date_posted|date:"Y 年 n 月 d 日" }}</small>
                 </div>
                 <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
                 <p class="article-content">{{ post.content }}</p>
