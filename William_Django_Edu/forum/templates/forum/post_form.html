@@ -1,0 +1,18 @@
+{% extends "forum/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-5">发布新文章</legend>
+                {#我们在这里可以简单的通过as_p快速进行段落排版#}
+                {#               {{ form.as_p }}#}
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">点我发布</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
