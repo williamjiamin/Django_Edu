@@ -15,7 +15,23 @@
                 <p class="article-content">{{ post.content }}</p>
             </div>
         </article>
-
     {% endfor %}
+
+    {% if is_paginated %}
+        {% if page_obj.has_previous %}
+            <a href="?page=1" class="btn btn-outline-info mb-2">到第一页</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-info mb-2">上一页</a>
+        {% endif %}
+
+
+
+
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline-info mb-2">下一页</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline-info mb-2">到最后页</a>
+        {% endif %}
+    {% endif %}
+
 {% endblock content %}
 

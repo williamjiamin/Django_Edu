@@ -1,0 +1,16 @@
+{% extends "forum/base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-5">删除文章</legend>
+                <h2>你确认要删除【{{ object.title }}】文章吗？注意！！！一旦删除无法反悔哦！！！！</h2>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type="submit">是的，我确认要删除这个文章！</button>
+                <a href="{% url 'post-detail' object.id %}" class="btn btn-outline-secondary">我反悔了，不删除了！！！</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

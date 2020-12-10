@@ -12,9 +12,9 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'forum/main.css' %}">
     {% if title %}
-        <title>乐学偶得论坛 - 【{{ title }}】</title>
+        <title>乐学偶得-微-Chat空间 - 【{{ title }}】</title>
     {% else %}
-        <title>乐学偶得论坛</title>
+        <title>乐学偶得-微-Chat空间</title>
     {% endif %}
 
 </head>
@@ -29,10 +29,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'forum-home' %}">主页 <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'forum-home' %}">广场 <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'forum-home' %}">所有文章</a>
+                <a class="nav-link" href="{% url 'forum-home' %}">所有-Chat</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -58,21 +58,23 @@
         </form>
         <ul class="navbar-nav mr-0">
             {% if user.is_authenticated %}
-             <li class="nav-item">
-                <a class="nav-link" href="{% url 'profile' %}">个人主页</a>
-             </li>
-             <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">登出</a>
-             </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'post-create' %}">发-Chat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'profile' %}">个人主页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">登出</a>
+                </li>
             {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'register' %}">注册</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">登陆</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">注册</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">登陆</a>
+                </li>
             {% endif %}
-
 
 
         </ul>
