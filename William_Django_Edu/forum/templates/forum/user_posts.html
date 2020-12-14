@@ -1,5 +1,7 @@
 {% extends "forum/base.html" %}
 {% block content %}
+    <h1>以下为用户【{{ view.kwargs.username }}】发布的微-Chat，共【{{ page_obj.paginator.count }}】条</h1>
+
     {% for post in posts %}
         {#        <h1>【{{ post.title }}】</h1>#}
         {#        <p>文章信息：该文章由【{{ post.author }}】 发布，发布时间为【{{ post.date_posted }}】</p>#}
